@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "employee-project-62885": {
+      "hosting": {
+        "employee-project": [
+          "employee-project-62885"
+        ]
+      }
+    }
+  }
+}

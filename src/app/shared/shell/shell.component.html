@@ -1,0 +1,44 @@
+<mat-sidenav-container class="sidenav-cotainer">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role] = "(isHandset$ | async) ? 'dialog': 'navigation' "
+        [mode] = "(isHandset$ | async) ? 'over' : 'side' "
+        [opened] = "false"
+    >
+
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+        <a mat-list-item routerLink="/employee-home" (click)="drawer.close()">Home</a>
+        <a mat-list-item routerLink="/employee-login" (click)="drawer.close()">Login</a>
+        <a mat-list-item routerLink="/show" (click)="drawer.close()">Info</a>
+
+    </mat-nav-list>
+
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+    <mat-toolbar>
+        <button type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()"
+            *ngIf = "isHandset$ | async"
+        ><mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+    <span class="logo" routerLink="/employee-home">Employee Center</span>
+    <span class="fill-space"></span>
+    <div *ngIf="!(isHandset$ | async)">
+        <a mat-button routerLink="/employee-home">Home</a>
+        <a mat-button routerLink="/employee-login">Register</a>
+        <a mat-button routerLink="/show">Employee Info</a>
+        <a mat-button appGoogleSignin>Sign In with Google</a>
+        <a mat-button (click)="log_out_user()">Log out</a>
+
+
+    </div>
+    </mat-toolbar>
+    <ng-content></ng-content>
+
+</mat-sidenav-content>
+</mat-sidenav-container>
+
+ 
